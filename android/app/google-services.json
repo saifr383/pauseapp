@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "502467714371",
+    "project_id": "pauseapp-2fc05",
+    "storage_bucket": "pauseapp-2fc05.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502467714371:android:0159e394c6f39fcd1d63f6",
+        "android_client_info": {
+          "package_name": "com.example.pauscreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502467714371-h5qa7a1i3m7vvs2ckjhpnqav6lev0riv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqtH9eccgUbUbdMC2O-BE4sQzFmVWkyn0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502467714371-h5qa7a1i3m7vvs2ckjhpnqav6lev0riv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

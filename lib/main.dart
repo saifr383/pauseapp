@@ -1,11 +1,16 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pauscreen/Screens/ProfilesScreen.dart';
 import 'package:pauscreen/Screens/Splash_Screen.dart';
 import 'Authentication_firebase/Auth_screen.dart';
 import 'Screens/Activate_Screem.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // initializing the firebase app
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

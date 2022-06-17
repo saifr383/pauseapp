@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pauscreen/Authentication_firebase/Auth_func.dart';
 
 import 'Phone_auth.dart';
 import 'Sign In.dart';
@@ -40,6 +41,8 @@ class _AuthState extends State<Auth> {
                    Image.network('https://cdn.iconscout.com/icon/free/png-128/google-152-189813.png',height: 30,),
                       FlatButton(
                         onPressed: (){
+                          Auth_func auth=Auth_func();
+                          auth.signupgmail(context);
                         },
                         child: Text('Google Sign in',style: TextStyle(color: Colors.white,fontSize: 20),),
                       ),
@@ -117,6 +120,8 @@ class _AuthState extends State<Auth> {
                       Icon(Icons.facebook,color:Colors.white,size: 35,),
                       FlatButton(
                         onPressed: (){
+                          Auth_func auth=Auth_func();
+                          auth.initiateFacebookLogin(context);
                         },
                         child: Text('Facebook Log in',style: TextStyle(color: Colors.white,fontSize: 20),),
                       ),
