@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Authentication_firebase/Auth_screen.dart';
 import '../Authentication_firebase/Sign In.dart';
 import 'Activate_Screem.dart';
 
@@ -19,7 +20,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
             body: Stack(children: [
              ElevatedButton(onPressed: (){
                Navigator.push(context, MaterialPageRoute(builder: (context)=>
-               Activates()
+               Auth()
                ));
 
              }, child:  Container(
