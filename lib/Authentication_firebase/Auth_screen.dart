@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pauscreen/Authentication_firebase/Auth_func.dart';
+import 'package:pauscreen/Authentication_firebase/phon_auth_enter_number.dart';
 
 import 'Phone_auth.dart';
 import 'Sign In.dart';
@@ -84,7 +85,7 @@ class _AuthState extends State<Auth> {
                 child: FlatButton(
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    Verification()
+                    EnterPhoneNumberScreen()
                     ));
                   },
                   child:  Row(
@@ -93,7 +94,7 @@ class _AuthState extends State<Auth> {
                       FlatButton(
                         onPressed: (){
                           Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                          Verification()
+                          EnterPhoneNumberScreen()
                           ));
 
 

@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pauscreen/Authentication_firebase/SignUpController.dart';
 import 'package:pauscreen/Screens/Setting_Screen.dart';
 
+import 'EmailAuthController.dart';
 import 'Sign In.dart';
 
 class SignUpScreen extends StatefulWidget {

@@ -1,30 +1,26 @@
-import 'dart:ui';
-
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pauscreen/Authentication_firebase/PhoneController.dart';
 
-import '../Screens/Setting_Screen.dart';
-import 'EmailAuthController.dart';
-import 'SignUP _Emial.dart';
-
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+class EnterPhoneNumberScreen extends StatefulWidget {
+  EnterPhoneNumberScreen({Key? key}) : super(key: key);
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<EnterPhoneNumberScreen> createState() => _EnterPhoneNumberScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
-
+class _EnterPhoneNumberScreenState extends State<EnterPhoneNumberScreen> {
   final GlobalKey<FormState> _signUpFormKey = GlobalKey();
 
+  bool loading = false;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: Form(
+        body: loading ? Center(
+          child: CircularProgressIndicator(),
+        ) : Form(
           key: _signUpFormKey,
           child: Stack(
             children: [
@@ -59,75 +55,38 @@ class _SignInScreenState extends State<SignInScreen> {
                           return null;
 
                         },
-                        controller: EmailPasswordAuth.emailController,
-                        keyboardType: TextInputType.emailAddress,
+                        controller: PhoneController.phoneController,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
 
-                          hintText: "Email",
+                          hintText: "Enter Phone Number",
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular((5)),
                           ),
                         ),
                       ),
                       SizedBox(height: 30),
-                      Text('Password'),
-                      TextFormField(
-                        validator: (value){
-                          if (value==null) {
-                            return 'field is required';
-                          }
-                          if(value.isEmpty){
-                            return 'field is required';
-                          }
-                          return null;
-
-                        },
-
-                        controller: EmailPasswordAuth.passwordController,
-                        obscureText: true,
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-
-                          hintText: "Password",
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular((5)),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:  EdgeInsets.only(left: 100),
-                        child:FlatButton(
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                            SignUpScreen()
-                            ));
-                          },
-                          child:  Text('Do not have account? SignUp',style: TextStyle(color: Colors.black38),),
-                        )
-                      ),
-                      SizedBox(height: (20)),
                       Padding(
                         padding: const EdgeInsets.only(left: 40),
                         child: Container( child: FlatButton(
                           onPressed: () async{
                             if(_signUpFormKey.currentState!.validate()){
-                              bool success =
-                                  await EmailPasswordAuth.signInwithEmailPass();
-                              if (success) {
-                                print(FirebaseAuth.instance.currentUser!.email.toString());
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Setting()));
-
-                              }
-                            }
+                              setState((){
+                                loading = true;
+                              });
+                              await PhoneController.verifyPhoneNumber();
+                              if(mounted){
+                                        setState(() {
+                                          loading = false;
+                                        });
+                                      }
+                                    }
 
                             // Navigator.push(context, MaterialPageRoute(
                             //   builder: (BuildContext context) => Setting()));
 
 
-                            }, child: Text('SIGN IN',style: TextStyle(fontSize: 20,color: Colors.white),),),
+                          }, child: const Text('SEND CODE',style: TextStyle(fontSize: 20,color: Colors.white),),),
                           height: 50, width: 230,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
