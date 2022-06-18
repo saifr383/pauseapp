@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:pauscreen/Screens/Activate_Screem.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -28,23 +27,25 @@ class Auth_func{
       // for go to the HomePage screen
     }
   }
-  void initiateFacebookLogin(BuildContext context) async {
-    var facebookLogin = FacebookLogin();
-    var facebookLoginResult =
-    await facebookLogin.logInWithReadPermissions(['email']);
-    switch (facebookLoginResult.status) {
-      case FacebookLoginStatus.error:
-        print("Error");
 
-        break;
-      case FacebookLoginStatus.cancelledByUser:
-        print("CancelledByUser");
-        break;
-      case FacebookLoginStatus.loggedIn:
-        print("LoggedIn");
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Activates()));
-        break;
-    }
+  void initiateFacebookLogin(BuildContext context) async {
+  //   var facebookLogin = FacebookLogin();
+  //   var facebookLoginResult =
+  //   await facebookLogin.logInWithReadPermissions(['email']);
+  //   switch (facebookLoginResult.status) {
+  //     case FacebookLoginStatus.error:
+  //       print("Error");
+  //
+  //       break;
+  //     case FacebookLoginStatus.cancelledByUser:
+  //       print("CancelledByUser");
+  //       break;
+  //     case FacebookLoginStatus.loggedIn:
+  //       print("LoggedIn");
+  //       Navigator.pushReplacement(
+  //           context, MaterialPageRoute(builder: (context) => Activates()));
+  //       break;
+  //   }
   }
+
 }
